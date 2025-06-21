@@ -53,20 +53,28 @@
             filter: blur(8px) brightness(0.3);
         }
 
-        /* --- ESTILOS DO CABEÇALHO --- */
+        /* --- ESTILOS DO CABEÇALHO (COM AJUSTES RESPONSIVOS) --- */
         .hud-element {
             position: absolute;
             font-family: monospace;
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: 0.625rem; /* Tamanho base menor para celulares */
+            line-height: 1.4;
             color: #00ffff;
             text-shadow: 0 0 5px #00ffff;
             opacity: 0;
             animation: fadeIn 1s 1s forwards, glitch 5s infinite 2s;
         }
-        .hud-top-left { top: 2rem; left: 2rem; border-left: 2px solid #00ffff; padding-left: 0.5rem; }
-        .hud-top-right { top: 2rem; right: 2rem; text-align: right; border-right: 2px solid #00ffff; padding-right: 0.5rem; }
+        .hud-top-left { top: 1rem; left: 1rem; border-left: 2px solid #00ffff; padding-left: 0.5rem; }
+        .hud-top-right { top: 1rem; right: 1rem; text-align: right; border-right: 2px solid #00ffff; padding-right: 0.5rem; }
         
+        /* Aumenta o tamanho e o espaçamento em telas maiores (desktop) */
+        @media (min-width: 768px) {
+            .hud-element { font-size: 0.75rem; }
+            .hud-top-left { top: 2rem; left: 2rem; }
+            .hud-top-right { top: 2rem; right: 2rem; }
+        }
+
         #hero-logo {
             opacity: 0;
             transform: scale(0.8);
@@ -203,18 +211,18 @@
     <div id="main-content" class="relative z-30">
         <header id="hero" class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative overflow-hidden">
             
-            <div class="hud-element hud-top-left hidden md:block">
+            <div class="hud-element hud-top-left">
                 <span>// STATUS: ONLINE</span><br>
-                <span>// CLIENT IP: 127.0.0.1</span>
+                <span class="hidden sm:inline-block">// CLIENT IP: 127.0.0.1</span>
             </div>
-            <div class="hud-element hud-top-right hidden md:block">
+            <div class="hud-element hud-top-right">
                 <span>// INICIANDO PORTFOLIO...</span><br>
-                <span>// VERSAO: 3.1</span>
+                <span class="hidden sm:inline-block">// VERSAO: 3.2</span>
             </div>
 
             <img id="hero-logo" src="img/Imagem_do_WhatsApp_de_2025-06-21_à_s__13.58.41_702c79b4-removebg-preview.png" alt="Logo Principal" class="w-64 md:w-96 mb-4">
             
-            <p id="hero-subtitle" class="text-lg md:text-3xl mt-4 font-light text-neon-cyan tracking-widest">DESIGN GRÁFICO & DIREÇÃO DE ARTE</p>
+            <p id="hero-subtitle" class="text-sm sm:text-lg md:text-3xl mt-4 font-light text-neon-cyan tracking-wider md:tracking-widest">DESIGN GRÁFICO & DIREÇÃO DE ARTE</p>
             
             <div class="absolute bottom-10 animate-bounce"><svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
         </header>
